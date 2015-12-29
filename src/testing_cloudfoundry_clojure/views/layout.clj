@@ -1,5 +1,6 @@
 (ns testing-cloudfoundry-clojure.views.layout
-  (:require [hiccup.page :as h]))
+  (:require [hiccup.page :as h]
+            [environ.core :refer [env]]))
 
 (defn common [title & body]
   (h/html5
@@ -16,7 +17,9 @@
     [:body
      [:div {:id "header"}
       [:h1 {:class "container"} "SHOUTER"]]
-     [:div {:id "content" :class "container"} body]]))
+     [:div {:id "content" :class "container"} body]
+     [:div {:id "footer" :class "container"}
+      [:p "DATABASE_URL=" (env :database-url)]]]))
 
 (defn four-oh-four []
   (common "Page Not Found"

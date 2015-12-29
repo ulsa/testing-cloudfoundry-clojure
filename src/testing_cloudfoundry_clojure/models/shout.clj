@@ -1,7 +1,8 @@
 (ns testing-cloudfoundry-clojure.models.shout
-  (:require [clojure.java.jdbc :as sql]))
+  (:require [clojure.java.jdbc :as sql]
+            [environ.core :refer [env]]))
 
-(def spec (or (System/getenv "DATABASE_URL")
+(def spec (or (env :database-url)
               "postgresql://localhost:5432/shouter"))
 
 (defn all []
