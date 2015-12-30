@@ -1,9 +1,33 @@
 (ns testing-cloudfoundry-clojure.models.shout
   (:require [clojure.java.jdbc :as sql]
-            [environ.core :refer [env]]))
+            [environ.core :refer [env]]
+            [cheshire.core :as json]))
 
-(def spec (or (env :database-url)
-              "postgresql://localhost:5432/shouter"))
+(defn parse-elephantsql
+  "{
+ elephantsql: [
+               {
+                name:        \"postgresql\",
+                label:       \"elephantsql\",
+                plan:        \"turtle\",
+                credentials: {
+                              uri: \"postgres://seilbmbd:PHxTPJSbkcDakfK4cYwXHiIX9Q8p5Bxn@babar.elephantsql.com:5432/seilbmbd\"
+                              }
+                }
+               ]
+ }"
+  [m]
+  (get-in m [:elephantsql 0 :credentials :uri]))
+
+(defonce spec (if-let [database-url (env :database-url)]
+                (do (println "DATABASE_URL is set:" database-url)
+                    database-url)
+                (if-let [vcap-services (env :vcap-services)]
+                  (do (println "VCAP_SERVICES is set:" vcap-services)
+                      (parse-elephantsql (json/parse-string vcap-services true)))
+                  (let [default "postgresql://localhost:5432/shouter"]
+                    (do (println "Neither DATABASE_URL nor VCAP_SERVICES set, using default:" default)
+                        default)))))
 
 (defn all []
   (into [] (sql/query spec ["select * from shouts order by id desc"])))

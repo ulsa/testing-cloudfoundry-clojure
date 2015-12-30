@@ -9,6 +9,7 @@
                  [ring/ring-jetty-adapter "1.4.0"]
                  [org.clojure/java.jdbc "0.4.2"]
                  [org.postgresql/postgresql "9.4.1207"]
+                 [cheshire "5.5.0"]
                  [environ "1.0.1"]]
   :plugins [[lein-ring "0.9.7"]
             [lein-environ "1.0.1"]]
