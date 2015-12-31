@@ -1,0 +1,6 @@
+---
+applications:
+- name: Green
+  memory: 512M
+  host: testing-cloudfoundry
+  buildpack: https://github.com/heroku/heroku-buildpack-clojure.git
