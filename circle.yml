@@ -1,5 +1,6 @@
 dependencies:
   pre:
+    - createdb shouter
     - curl -v -L -o cf-cli_amd64.deb 'https://cli.run.pivotal.io/stable?release=debian64&source=github'
     - sudo dpkg -i cf-cli_amd64.deb
     - cf -v
@@ -9,7 +10,7 @@ test:
     - cf api https://api.run.pivotal.io
     - cf auth $PWS_USER $PWS_PASSWORD
     - cf target -o $PWS_USER -s development
-    - cf a
+    - cf apps
 
 deployment:
   production:
