@@ -10,7 +10,8 @@
                  [org.clojure/java.jdbc "0.4.2"]
                  [org.postgresql/postgresql "9.4.1207"]
                  [cheshire "5.5.0"]
-                 [environ "1.0.1"]]
+                 [environ "1.0.1"]
+                 [enlive "1.1.6"]]
   :plugins [[lein-ring "0.9.7"]
             [lein-environ "1.0.1"]]
   :ring {:handler testing-cloudfoundry-clojure.handler/app}
