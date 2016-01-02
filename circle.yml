@@ -5,15 +5,20 @@ dependencies:
     - sudo dpkg -i cf-cli_amd64.deb
     - cf -v
 
-test:
-  post:
-    - cf api https://api.run.pivotal.io
-    - cf auth $PWS_USER $PWS_PASSWORD
-    - cf target -o $PWS_ORG -s $PWS_SPACE
-    - cf apps
-
 deployment:
   production:
     branch: master
     commands:
+      - cf api https://api.run.pivotal.io
+      - cf auth $PWS_USER $PWS_PASSWORD
+      - cf target -o $PWS_ORG -s $PWS_SPACE
+      - cf apps
+      - cf push
+  bluemix:
+    branch: bluemix
+    commands:
+      - cf api https://api.run.pivotal.io
+      - cf auth $BLUEMIX_USER $BLUEMIX_PASSWORD
+      - cf target -o $BLUEMIX_ORG -s $BLUEMIX_SPACE
+      - cf apps
       - cf push
