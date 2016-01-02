@@ -2,6 +2,8 @@
   :description "FIXME: write description"
   :url "http://example.com/FIXME"
   :min-lein-version "2.0.0"
+  :mirrors {#"clojars" {:name "clojars mirror"
+                        :url "https://clojars-mirror.tcrawley.org/repo/"}}
   :dependencies [[org.clojure/clojure "1.7.0"]
                  [compojure "1.4.0"]
                  [hiccup "1.0.5"]
