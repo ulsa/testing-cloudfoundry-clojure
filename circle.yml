@@ -17,7 +17,7 @@ deployment:
   bluemix:
     branch: bluemix
     commands:
-      - cf api https://api.run.pivotal.io
+      - cf api https://api.eu-gb.bluemix.net
       - cf auth $BLUEMIX_USER $BLUEMIX_PASSWORD
       - cf target -o $BLUEMIX_ORG -s $BLUEMIX_SPACE
       - cf apps
