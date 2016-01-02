@@ -14,6 +14,11 @@ A more detailed guide is [available here](https://blog.starkandwayne.com/2015/10
 $ cf api
 API endpoint: https://api.run.pivotal.io (API version: 2.44.0)
 
+$ cf api https://api.eu-gb.bluemix.net
+$ cf login
+$ cf create-service elephantsql turtle postgresql
+$ cf bind-service Green postgresql
+
 $ cf api --skip-ssl-validation api.bosh-lite.com
 $ cf login
 Email> admin
