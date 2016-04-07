@@ -4,15 +4,15 @@
   :min-lein-version "2.0.0"
   :mirrors {#"clojars" {:name "clojars mirror"
                         :url "https://clojars-mirror.tcrawley.org/repo/"}}
-  :dependencies [[org.clojure/clojure "1.7.0"]
-                 [compojure "1.4.0"]
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [compojure "1.5.0"]
                  [hiccup "1.0.5"]
-                 [ring/ring-defaults "0.1.5"]
+                 [ring/ring-defaults "0.2.0"]
                  [ring/ring-jetty-adapter "1.4.0"]
-                 [org.clojure/java.jdbc "0.4.2"]
-                 [org.postgresql/postgresql "9.4.1207"]
+                 [org.clojure/java.jdbc "0.5.0"]
+                 [org.postgresql/postgresql "9.4.1208"]
                  [cheshire "5.5.0"]
-                 [environ "1.0.1"]
+                 [environ "1.0.2"]
                  [enlive "1.1.6"]]
   :plugins [[lein-ring "0.9.7"]
             [lein-environ "1.0.1"]]
