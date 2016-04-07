@@ -16,7 +16,7 @@
                  [enlive "1.1.6"]]
   :plugins [[lein-ring "0.9.7"]
             [lein-environ "1.0.1"]]
-  :ring {:handler testing-cloudfoundry-clojure.handler/app}
+  :ring {:handler testing-cloudfoundry-clojure.handler/application}
   :profiles
   {:dev     {:dependencies [[javax.servlet/servlet-api "2.5"]
                             [ring/ring-mock "0.3.0"]]}
