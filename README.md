@@ -117,7 +117,9 @@ $ cf bind-service Blue postgresql
 $ cf restage Blue
 ```
 
-Deploy community services (doesn't work, gateways fail):
+Before I settled on `postgresql-docker-boshrelease`, I tried to deploy community 
+services. However, the deploy didn't work; something about gateways failing. Here
+are the instructions anyway:
 
 ```
 $ cd ~/Source/Git/cloudfoundry-community
